@@ -5,13 +5,14 @@ import static org.junit.Assert.*;
 public class StringCalculatorTest {
 
     @Test
-    public void CalcGetsNoNumbersItReturnsZero(){
+    public void CalcGetsNoNumbersItReturnsZero() {
         StringCalculator sc = new StringCalculator();
         int zero = sc.add("");
         assertEquals(0, zero);
     }
+
     @Test
-    public void CalcGetsOneNumberItReturnsThatNumber(){
+    public void CalcGetsOneNumberItReturnsThatNumber() {
         StringCalculator sc = new StringCalculator();
         int three = sc.add("3");
         assertEquals(3, three);
@@ -48,17 +49,17 @@ public class StringCalculatorTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void CalcGetNegativeNumbersThrowsException(){
+    public void CalcGetNegativeNumbersThrowsException() {
         StringCalculator sc = new StringCalculator();
         int result = sc.add("1 2 -3");
 
     }
 
     @Test
-    public void CalcGetNegativeNumbersThrowsExceptionWithThoseNegativeNumbersInTheMessage(){
+    public void CalcGetNegativeNumbersThrowsExceptionWithThoseNegativeNumbersInTheMessage() {
         StringCalculator sc = new StringCalculator();
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sc.add("1 2 -3;20\n-90"));
-        System.out.println(e.getMessage());
+        // System.out.println(e.getMessage());
         assertTrue((e.getMessage().contains("Negatives not allowed -3 -90")));
 
     }
@@ -68,6 +69,21 @@ public class StringCalculatorTest {
         StringCalculator sc = new StringCalculator();
         int r = sc.add("1 2 3 1001");
         assertEquals(6, r);
+    }
+
+    @Test
+    public void CalcGetAllKindsOfDelimitersJustTakesTheNumbersAndSumsThemUp() {
+        StringCalculator sc = new StringCalculator();
+        int x = sc.add("//[***]\\n1***2***3");
+        assertEquals(6, x);
+    }
+
+    @Test
+    public void CalcGetsNonNumericalValuesAndIgnoresThem() {
+        StringCalculator sc = new StringCalculator();
+        int x = sc.add("1 # 2 3 4 5 boo 6 7 :) 8 9");
+        assertEquals(45, x);
+
     }
 
 }
