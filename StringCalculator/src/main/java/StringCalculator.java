@@ -63,7 +63,6 @@ public class StringCalculator {
         if (invalids.length() != 0) {
             throw new IllegalArgumentException("Negatives not allowed " + invalids);
         }
-
         return filtered;
 
 
