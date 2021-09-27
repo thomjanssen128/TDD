@@ -1,6 +1,5 @@
 package nl.thom.tdd;
 
-import nl.thom.tdd.StringCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

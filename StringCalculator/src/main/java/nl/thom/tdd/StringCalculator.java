@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class StringCalculator {
     public int add(String numbers) {
-        return validNumbers(numbers).stream().mapToInt(a->a).sum();
+        return validNumbers(numbers).stream().mapToInt(a -> a).sum();
     }
 
     private ArrayList<Integer> validNumbers(String numbers) {
@@ -13,7 +13,6 @@ public class StringCalculator {
         ArrayList<String> filtered = filterNegativeNumbers(nums);
 
         for (String n : filtered) {
-            // System.out.println(n);
             try {
                 int x = Integer.parseInt(n);
             } catch (NumberFormatException e) {
@@ -21,8 +20,6 @@ public class StringCalculator {
             }
             if (n.isBlank()) {
                 continue;
-
-
             } else {
                 int r = Integer.parseInt(n);
                 if (r < 1000) {
@@ -30,9 +27,7 @@ public class StringCalculator {
                 }
             }
         }
-
         return valids;
-
     }
 
     private String[] splitter(String input) {
@@ -55,7 +50,5 @@ public class StringCalculator {
             throw new IllegalArgumentException("Negatives not allowed " + invalids);
         }
         return filtered;
-
-
     }
 }
