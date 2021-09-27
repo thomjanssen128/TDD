@@ -1,3 +1,6 @@
+package nl.thom.tdd;
+
+import nl.thom.tdd.StringCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -51,7 +54,7 @@ public class StringCalculatorTest {
     @Test(expected = IllegalArgumentException.class)
     public void CalcGetNegativeNumbersThrowsException() {
         StringCalculator sc = new StringCalculator();
-        int result = sc.add("1 2 -3");
+        sc.add("1 2 -3");
 
     }
 

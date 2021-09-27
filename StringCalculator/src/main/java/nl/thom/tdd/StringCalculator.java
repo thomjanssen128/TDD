@@ -1,28 +1,19 @@
+package nl.thom.tdd;
+
 import java.util.ArrayList;
 
 public class StringCalculator {
     public int add(String numbers) {
-        ArrayList<Integer> nums = validNumbers(numbers);
-        //int sum = 0;
-        // for (int n : nums) {
-        //     sum += n;
-        // }
-        int sum = nums.stream()
-                .mapToInt(a -> a)
-                .sum();
-
-        return sum;
-
+        return validNumbers(numbers).stream().mapToInt(a->a).sum();
     }
 
     private ArrayList<Integer> validNumbers(String numbers) {
-        ArrayList<Integer> valids = new ArrayList<Integer>();
+        ArrayList<Integer> valids = new ArrayList<>();
         String[] nums = splitter(numbers);
         ArrayList<String> filtered = filterNegativeNumbers(nums);
 
-        for (String n : nums) {
+        for (String n : filtered) {
             // System.out.println(n);
-
             try {
                 int x = Integer.parseInt(n);
             } catch (NumberFormatException e) {
