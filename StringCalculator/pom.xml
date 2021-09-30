@@ -6,7 +6,9 @@
 
     <groupId>nl.thom.tdd</groupId>
     <artifactId>StringCalculator</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
